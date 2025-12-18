@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Plantilla: Título de la Canción</title>
+<!-- Importación de Fuentes -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&amp;family=Montserrat:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* Estética base de la web principal */
+        :root {
+            --bg-main: #F5F5DC;
+            --bg-card: #FFFFFF;
+            --text-main: #5D4A3C;
+            --text-accent: #7b6f52;
+            --border-light: #D3C5AA;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: 'Merriweather', serif;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            margin: 25px 0 15px 0;
+        }
+        h1 { margin-top: 0; }
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+        p { margin-bottom: 20px; }
+
+        /* Header simple para la plantilla */
+        .post-header {
+            background-color: #E8E0D1;
+            padding: 15px 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .back-link {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1em;
+            color: var(--text-accent);
+            transition: color 0.3s;
+        }
+        .back-link:hover {
+            color: var(--text-main);
+        }
+
+        /* Contenedor principal */
+        main {
+            max-width: 800px; /* Ancho de lectura cómodo */
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .post-card {
+            background-color: var(--bg-card);
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        /* Metadatos del post */
+        .post-meta {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9em;
+            color: var(--text-accent);
+            margin-bottom: 25px;
+        }
+        .post-meta span { margin-right: 15px; }
+
+        /* ESTILOS DE MÚSICA */
+
+        /* Contenedor responsive para video/audio embed */
+        .media-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Proporción 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .media-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Estilo para la letra (similar a poesía) */
+        .letra-texto {
+            font-family: 'Merriweather', serif;
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #444;
+            white-space: pre-wrap; /* Respetar saltos de línea */
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fdfcf9;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-accent);
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            .post-card { padding: 30px 25px; }
+        }
+    </style>
+</head>
+<body>
+<header class="post-header">
+<a class="back-link" href="../../../index.html">← Volver al inicio</a>
+</header>
+<main>
+<article class="post-card">
+<h1>Aquí va el Título de la Canción</h1>
+<div class="post-meta">
+<span>13 de Noviembre, 2025</span>
+<span>Etiquetas: Música, Instrumental, Amor</span>
+</div>
+<!-- Contenedor para Video (YouTube, Vimeo, etc.) -->
+<!-- Solo tienes que pegar el código 'iframe' de YouTube aquí dentro -->
+<div class="media-container">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/dQw4w9WgXcQ">
+</iframe>
+</div>
+<h2>Sobre la canción</h2>
+<p>Aquí puedes escribir un poco sobre la composición, la grabación, o lo que te inspiró a crear esta pieza musical. Es el contexto perfecto para la escucha.</p>
+<h2>Letra (Opcional)</h2>
+<div class="letra-texto">
+(Estrofa 1)
+Aquí puedes poner la letra
+de la canción.
+
+(Estribillo)
+Los saltos de línea se respetarán,
+igual que en la plantilla de poesía.
+
+(Estrofa 2)
+Perfecto para que tus seguidores
+conecten aún más con tu música.
+            </div>
+</article>
+</main>
+<footer>
+<p>© 2025 Hugo Garrido Pacho</p>
+</footer>
+</body>
+</html>
