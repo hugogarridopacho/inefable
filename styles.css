@@ -1,0 +1,824 @@
+/* --- RESET Y ESTILO BASE --- */
+:root {
+    --bg-main: #F5F5DC; /* Beige de fondo */
+    --bg-card: #FFFFFF;
+    --bg-header: #E8E0D1; /* Beige más oscuro */
+    --text-main: #5D4A3C; /* Marrón oscuro */
+    --text-accent: #7b6f52;
+    --border-light: #D3C5AA;
+}
+
+/* --- VARIABLES DEL MODO ZEN (GLOBAL) --- */
+body.zen-active {
+    /* Redefinimos las variables para el modo oscuro */
+    --bg-main: #111111;        /* Fondo casi negro */
+    --bg-card: #1c1c1c;        /* Tarjetas gris oscuro */
+    --bg-header: #0f0f0f;      /* Cabecera oscura */
+    --text-main: #e0e0e0;      /* Texto blanco suave */
+    --text-accent: #c0b283;    /* Acento dorado/beige más claro */
+    --border-light: #333333;   /* Bordes sutiles */
+}
+
+/* --- AJUSTES ESPECÍFICOS PARA MODO ZEN --- */
+
+/* 1. Oscurecer el fondo de partículas */
+body.zen-active #particles-js {
+    filter: brightness(0.2); /* Oscurece las partículas sin quitarlas */
+}
+
+/* 2. Ajustes en el Header al hacer scroll */
+body.zen-active header.scrolled {
+    background-color: rgba(28, 28, 28, 0.95); /* Fondo oscuro con transparencia */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* 3. Ajustes para inputs y formularios (Buscador, Suscripción, Guestbook) */
+body.zen-active input,
+body.zen-active textarea {
+    background-color: #2a2a2a !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-light) !important;
+}
+
+/* 4. Imágenes un poco más tenues para que no deslumbren */
+body.zen-active img {
+    filter: brightness(0.9);
+}
+
+/* 5. El botón Zen activo (para que se note que está encendido) */
+body.zen-active #zen-mode-btn {
+    color: var(--text-accent);
+    text-shadow: 0 0 8px rgba(192, 178, 131, 0.5);
+}
+
+/* 6. Ajuste del cursor del título mecanografiado */
+body.zen-active #typewriter-title {
+    border-right-color: var(--text-main);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* --- FONDO DE PARTÍCULAS --- */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* IMPORTANTE: Detrás de todo el contenido */
+    pointer-events: none; /* Permite hacer clic en elementos por encima */
+    /* Degradado de fondo base */
+    background: linear-gradient(135deg, #F5F5DC 0%, #E8E0D1 100%);
+}
+
+/* --- EFECTO MÁQUINA DE ESCRIBIR --- */
+#typewriter-title {
+    font-family: 'Merriweather', serif; /* Usamos la fuente serif para más elegancia */
+    border-right: 3px solid var(--text-main); /* El cursor */
+    white-space: nowrap; /* Mantiene el texto en una línea mientras se escribe (opcional, depende de lo largo que sea) */
+    overflow: hidden;
+    margin: 0 auto 15px auto; /* Centrado */
+    width: fit-content; /* El borde se ajusta al ancho del contenido */
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+/* Animación del parpadeo del cursor */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--text-main) }
+}
+
+/* Ajuste responsive: si el título es muy largo en móvil, permitimos que rompa línea y quitamos el efecto de una sola línea */
+@media (max-width: 768px) {
+    #typewriter-title {
+    white-space: normal;
+    border-right: none; /* Quitamos el cursor en multilínea para que no quede raro */
+    }
+}
+
+/* --- ESTILOS MUSA VIRTUAL --- */
+.musa-section {
+    text-align: center;
+    margin: 50px 0;
+    padding: 40px;
+    background-color: rgba(253, 252, 249, 0.8);
+    border: 1px dashed var(--border-light);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.musa-section::before {
+    content: '✨';
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2em;
+    opacity: 0.3;
+    animation: floatIcon 3s ease-in-out infinite;
+}
+@keyframes floatIcon {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+.musa-content {
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    font-size: 1.4em;
+    color: var(--text-main);
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: opacity 0.5s ease;
+    padding: 0 20px;
+}
+.musa-btn {
+    background-color: var(--text-accent);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1em;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s, background-color 0.3s;
+}
+.musa-btn:hover {
+    background-color: var(--text-main);
+    transform: translateY(-2px);
+}
+.musa-btn:active {
+    transform: translateY(1px);
+}
+
+/* --- HEADER Y NAVEGACIÓN --- */
+header {
+    background-color: var(--bg-header);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    transition: background-color 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+}
+header.scrolled {
+    background-color: rgba(245, 245, 220, 0.85);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.logo img {
+    height: 45px;
+    width: auto;
+    margin-right: 12px;
+    border-radius: 50%;
+}
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+nav ul { list-style: none; display: flex; gap: 25px; }
+nav ul li {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    position: relative;
+    padding: 5px 0;
+}
+nav ul li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-main);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+nav ul li:hover::after,
+nav ul li.active-link::after {
+    transform: scaleX(1);
+}
+
+/* --- CONTENEDOR PRINCIPAL Y SECCIONES --- */
+main { max-width: 950px; margin: 40px auto; padding: 0 20px; }
+section {
+    display: none;
+    animation: sectionFadeIn 0.8s forwards;
+}
+section.active { display: block; }
+@keyframes sectionFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.content-card {
+    background-color: var(--bg-card);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+/* --- ANIMACIONES DE APARICIÓN (SCROLL REVEAL) --- */
+
+/* 1. Estados iniciales (Invisibles y desplazados) */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px); /* Viene de abajo */
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-zoom {
+    opacity: 0;
+    transform: scale(0.95); /* Viene pequeño */
+    transition: all 0.8s ease-out;
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-40px); /* Viene de la izquierda */
+    transition: all 0.8s ease-out;
+}
+
+/* 2. Estado Visible (El JS activa esto) */
+.reveal.visible,
+.reveal-zoom.visible,
+.reveal-left.visible {
+    opacity: 1;
+    transform: translate(0, 0) scale(1); /* Se coloca en su sitio */
+}
+
+/* 3. RETARDOS (Para el efecto cascada/escalera) */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
+/* Fallback de seguridad: si JS falla, muestra todo tras 2s */
+@keyframes safetyShow {
+    0% { opacity: 0; }
+    99% { opacity: 0; }
+    100% { opacity: 1; transform: none; }
+}
+.reveal {
+    animation: safetyShow 0.1s 2s forwards; /* Se activa si no se añade la clase .visible antes */
+}
+.reveal.visible {
+    animation: none; /* Desactiva el fallback si JS funciona */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- ESTILOS SECCIÓN INICIO --- */
+#inicio h1 { font-size: 2.8em; text-align: center; margin-bottom: 10px; }
+#inicio > p { font-size: 1.2em; text-align: center; font-style: italic; color: var(--text-accent); margin-bottom: 50px; }
+
+/* Carrusel */
+.carousel-container { position: relative; max-width: 100%; height: 350px; margin-bottom: 40px; overflow: hidden; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+.carousel-slide {
+    position: absolute; width: 100%; height: 100%; opacity: 0;
+    transition: opacity 1.2s ease-in-out; display: flex; align-items: flex-end;
+    cursor: pointer;
+}
+.carousel-slide.active-slide { opacity: 1; z-index: 1; }
+.carousel-slide img { position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
+.carousel-caption { background: linear-gradient(to top, rgba(93, 74, 60, 0.85), transparent); color: white; width: 100%; padding: 25px 30px; box-sizing: border-box; transform: translateY(100%); transition: transform 0.6s ease-out; }
+.active-slide .carousel-caption { transform: translateY(0); }
+.carousel-caption h3 { color: white; margin: 0; }
+.carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(255, 255, 255, 0.7); color: var(--text-main); border: none; font-size: 1.5em; padding: 10px; cursor: pointer; z-index: 2; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s, transform 0.3s; }
+.carousel-btn:hover { background-color: rgba(255, 255, 255, 1); transform: translateY(-50%) scale(1.05); }
+.prev-btn { left: 15px; }
+.next-btn { right: 15px; }
+
+/* Tabletas */
+.image-link-container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 25px; margin: 50px 0; }
+.image-link-item { position: relative; flex: 1 1 250px; height: 250px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.image-link-item:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.image-link-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.image-link-item:hover img { transform: scale(1.05); }
+.image-link-item .overlay { position: absolute; inset: 0; background-color: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Montserrat', sans-serif; font-size: 1.6em; font-weight: 600; transition: background-color 0.4s ease; }
+.image-link-item:hover .overlay { background-color: rgba(0,0,0,0.1); }
+
+.book-section { display: flex; align-items: center; gap: 30px; background-color: var(--bg-card); border-radius: 12px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.book-section:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.book-section img { width: 150px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+
+.about-section { margin-top: 60px; text-align: center; background: var(--bg-card); padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+.about-section img { max-width: 180px; height: 180px; object-fit: cover; border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin: 0 auto 20px auto; }
+.about-section p { max-width: 650px; margin: 0 auto; text-align: justify; }
+
+/* --- SECCIÓN CONTENIDO --- */
+#contenido nav { margin-bottom: 30px; }
+#contenido nav ul { justify-content: center; gap: 15px; }
+#contenido nav ul li { padding: 10px 20px; border: 1px solid var(--border-light); border-radius: 20px; transition: background-color 0.3s, color 0.3s; }
+#contenido nav ul li:hover { background-color: var(--text-main); border-color: var(--text-main); color: white; }
+#contenido nav ul li.active-subnav { background-color: var(--text-main); border-color: var(--text-main); color: white; }
+#contenido article { display: none; animation: sectionFadeIn 0.6s forwards; }
+#contenido article.active-content { display: block; }
+
+/* Estilos para las listas de categorías (desplegables) */
+.category-list, .timeline-list {
+    list-style: none;
+    padding: 0;
+}
+.category-list li, .timeline-list li {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-light);
+    transition: padding-left 0.3s ease;
+}
+.category-list li:hover, .timeline-list li:hover { padding-left: 10px; }
+.category-list li:last-child, .timeline-list li:last-child { border-bottom: none; }
+.category-list h3, .timeline-list h3 { font-size: 1.2em; margin: 0 0 5px 0; }
+.category-list .date, .timeline-date { font-size: 0.85em; color: var(--text-accent); }
+
+/* Clase para ocultar elementos sobrantes */
+.hidden-item { display: none; }
+
+/* Botón Ver Más */
+.show-more-btn {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 25px;
+    background-color: transparent;
+    border: 1px solid var(--text-main);
+    color: var(--text-main);
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+}
+.show-more-btn:hover {
+    background-color: var(--text-main);
+    color: white;
+}
+
+/* --- SECCIÓN ÍNDICE (Línea de tiempo) --- */
+.index-header { display: flex; justify-content: space-between; align-items: center; }
+#search-icon-btn { background: none; border: none; cursor: pointer; padding: 5px; border-radius: 50%; transition: background-color 0.3s; }
+#search-icon-btn svg { width: 24px; height: 24px; stroke: var(--text-accent); stroke-width: 2.5; transition: stroke 0.3s; }
+#search-icon-btn:hover { background-color: #0000000d; }
+#search-icon-btn:hover svg { stroke: var(--text-main); }
+
+.timeline-list { padding-left: 20px; border-left: 3px solid var(--border-light); }
+.timeline-list li { position: relative; }
+.timeline-list li::before { content: ''; position: absolute; left: -37px; top: 5px; width: 12px; height: 12px; background-color: var(--text-accent); border-radius: 50%; border: 3px solid var(--bg-main); transition: transform 0.3s ease; }
+.timeline-list li:hover::before { transform: scale(1.3); }
+.timeline-title a, .category-list h3 a { cursor: pointer; position: relative; text-decoration: none; color: inherit; }
+.timeline-title a::after, .category-list h3 a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 1px; background-color: var(--text-main); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+.timeline-title a:hover::after, .category-list h3 a:hover::after { transform: scaleX(1); }
+
+.timeline-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 5px; }
+.timeline-tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.8em; font-family: 'Montserrat', sans-serif; font-weight: 400; }
+.tag-tipo { background-color: var(--bg-header); }
+.tag-tema { background-color: #f0f0f0; color: #555; }
+
+/* Ocultar por buscador */
+.timeline-list li.filtered-out { display: none !important; }
+
+.no-results-message { text-align: center; font-style: italic; color: var(--text-accent); padding: 20px 0; display: none; }
+.no-results-message::before { display: none; }
+.timeline-list li.no-results-message.visible { display: block !important; opacity: 1; height: auto; }
+
+/* --- SECCIÓN MI LIBRO --- */
+.book-details { display: flex; gap: 30px; align-items: flex-start; }
+.book-details img { max-width: 300px; flex: 1 1 300px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); }
+.book-details div { flex: 2 1 400px; }
+
+/* --- SECCIÓN SUSCRIPCIÓN --- */
+#suscripcion { text-align: center; }
+.newsletter-form { display: flex; max-width: 500px; margin: 0 auto; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid var(--border-light); }
+.newsletter-form input[type="email"] { flex-grow: 1; padding: 14px 18px; border: none; font-family: 'Montserrat', sans-serif; font-size: 1em; color: var(--text-main); }
+.newsletter-form input[type="email"]:focus { outline: none; box-shadow: inset 0 0 0 2px var(--text-main); }
+.newsletter-form button { background-color: var(--text-main); color: white; border: none; padding: 0 25px; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 1em; cursor: pointer; transition: background-color 0.3s; }
+.newsletter-form button:hover { background-color: var(--text-accent); }
+.newsletter-message { margin-top: 15px; font-style: italic; color: var(--text-accent); }
+
+/* --- FOOTER Y REDES --- */
+footer { text-align: center; padding: 40px 20px; background-color: var(--bg-header); color: var(--text-main); margin-top: 60px; }
+.social-links a { margin: 0 15px; font-family: 'Montserrat', sans-serif; font-weight: 600; transition: transform 0.3s ease; display: inline-block; }
+.social-links a:hover { transform: scale(1.1); }
+
+/* --- ESTILOS BUSCADOR OVERLAY --- */
+#search-overlay { position: fixed; inset: 0; background-color: rgba(0, 0, 0, 0.6); backdrop-filter: blur(5px); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease; }
+#search-overlay.visible { opacity: 1; visibility: visible; }
+.search-modal-content { background: var(--bg-card); border-radius: 12px; padding: 30px; width: 100%; max-width: 600px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; transform: scale(0.95); transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1); }
+#search-overlay.visible .search-modal-content { transform: scale(1); }
+.close-search-btn { position: absolute; top: 10px; right: 15px; font-size: 2.5em; font-weight: 300; color: var(--border-light); cursor: pointer; line-height: 1; transition: color 0.3s; }
+.close-search-btn:hover { color: var(--text-main); }
+#search-input { width: 100%; padding: 12px 15px; font-family: 'Montserrat', sans-serif; font-size: 1.2em; border: 1px solid var(--border-light); border-radius: 8px; margin-bottom: 25px; }
+#search-input:focus { outline: none; border-color: var(--text-main); box-shadow: 0 0 0 3px rgba(93, 74, 60, 0.1); }
+.filter-group { margin-bottom: 20px; }
+.filter-group h3 { font-size: 1em; font-weight: 600; color: var(--text-accent); border-bottom: 1px solid var(--border-light); padding-bottom: 5px; margin-bottom: 12px; }
+.filter-tags-container { display: flex; flex-wrap: wrap; gap: 10px; }
+.tag-filter { font-family: 'Montserrat', sans-serif; font-size: 0.9em; background-color: var(--bg-header); border: 1px solid transparent; border-radius: 15px; padding: 6px 14px; cursor: pointer; transition: all 0.3s ease; }
+.tag-filter:hover { background-color: var(--border-light); }
+.tag-filter.active { background-color: var(--text-main); color: white; border-color: var(--text-main); }
+#clear-filters-btn { font-family: 'Montserrat', sans-serif; background: none; border: none; color: var(--text-accent); cursor: pointer; margin-top: 10px; text-decoration: underline; }
+#clear-filters-btn:hover { color: var(--text-main); }
+
+/* --- NUEVO: ESTILOS VISOR DE ENTRADAS (MODAL) --- */
+#entry-viewer-overlay { position: fixed; inset: 0; background-color: rgba(0, 0, 0, 0.6); backdrop-filter: blur(5px); z-index: 1500; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease; }
+#entry-viewer-overlay.visible { opacity: 1; visibility: visible; }
+.entry-viewer-modal { background: var(--bg-card); border-radius: 12px; width: 100%; max-width: 850px; height: 90vh; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; display: flex; flex-direction: column; transform: scale(0.95); transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1); }
+#entry-viewer-overlay.visible .entry-viewer-modal { transform: scale(1); }
+.close-entry-btn { position: absolute; top: 10px; right: 15px; font-size: 2.5em; font-weight: 300; color: var(--border-light); cursor: pointer; line-height: 1; transition: color 0.3s; z-index: 10; }
+.close-entry-btn:hover { color: var(--text-main); }
+#entry-viewer-content { padding: 40px 50px; overflow-y: auto; flex-grow: 1; font-family: 'Merriweather', serif; color: var(--text-main); line-height: 1.7; }
+.loader { font-size: 1.2em; text-align: center; padding: 50px; font-family: 'Montserrat', sans-serif; color: var(--text-accent); }
+
+/* --- BOTÓN MODO ZEN (EN HEADER) --- */
+#zen-mode-btn {
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+    line-height: 1;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#zen-mode-btn:hover {
+    transform: rotate(180deg);
+    color: var(--text-accent);
+}
+body.zen-active #zen-mode-btn {
+    color: var(--text-accent);
+    text-shadow: 0 0 10px rgba(123, 111, 82, 0.4);
+}
+
+/* --- LIBRO DE VISITAS (GUESTBOOK) --- */
+.guestbook-container {
+    margin: 30px auto;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-light) transparent;
+}
+.guestbook-container::-webkit-scrollbar { width: 6px; }
+.guestbook-container::-webkit-scrollbar-thumb { background-color: var(--border-light); border-radius: 10px; }
+.guest-message {
+    background-color: #faf9f5;
+    border-left: 3px solid var(--border-light);
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 0 8px 8px 0;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.guest-message:hover {
+    transform: translateX(5px);
+    background-color: #fffefb;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    border-left-color: var(--text-accent);
+}
+.message-text {
+    font-family: 'Merriweather', serif;
+    font-size: 1.1em;
+    color: var(--text-main);
+    line-height: 1.6;
+    margin-bottom: 8px;
+    font-style: italic;
+}
+.message-author {
+    display: block;
+    text-align: right;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85em;
+    font-weight: 600;
+    color: var(--text-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.guestbook-form {
+    border-top: 1px dashed var(--border-light);
+    padding-top: 30px;
+    margin-top: 20px;
+}
+.guestbook-form input {
+    padding: 12px 15px;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    background-color: #fdfdfd;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+    font-size: 0.95em;
+}
+.guestbook-form input:focus {
+    outline: none;
+    border-color: var(--text-accent);
+    box-shadow: 0 0 0 3px rgba(123, 111, 82, 0.1);
+    background-color: white;
+}
+@keyframes slideInMessage {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.guest-message.new-entry {
+    animation: slideInMessage 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* --- CORRECCIONES ESPECÍFICAS MODO ZEN --- */
+body.zen-active .musa-section {
+    background-color: rgba(30, 30, 30, 0.6);
+    border-color: var(--border-light);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+body.zen-active .musa-btn {
+    background-color: var(--text-accent);
+    color: #111;
+}
+body.zen-active .musa-btn:hover {
+    background-color: var(--text-main);
+    color: #000;
+}
+body.zen-active img {
+    filter: brightness(0.7) grayscale(30%);
+    transition: filter 0.5s ease;
+}
+body.zen-active img:hover { filter: brightness(1) grayscale(0%); }
+body.zen-active .carousel-container { box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+body.zen-active .image-link-item .overlay { background-color: rgba(0,0,0,0.6); }
+
+/* --- CORRECCIÓN GUESTBOOK (MODO ZEN) --- */
+body.zen-active .guest-message {
+    background-color: #252525;
+    border-left-color: var(--text-accent);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+body.zen-active .guest-message:hover {
+    background-color: #303030;
+    border-left-color: #fff;
+}
+body.zen-active .message-text { color: #ddd; }
+body.zen-active .message-author { color: var(--text-accent); }
+body.zen-active .guestbook-form { border-top-color: #444; }
+
+/* --- RESPONSIVE GENERAL --- */
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 15px; padding: 15px; }
+    .nav-wrapper { flex-direction: column; gap: 15px; }
+    nav ul { gap: 15px; justify-content: center; }
+    main { margin-top: 20px; }
+    #inicio h1 { font-size: 2em; }
+    .book-details { flex-direction: column; }
+    .newsletter-form { flex-direction: column; }
+    .entry-viewer-modal { padding: 10px; height: 85vh; }
+    #entry-viewer-content { padding: 40px 20px 20px 20px; }
+    .close-entry-btn { color: #aaa; }
+    .guestbook-form div { flex-direction: column; gap: 15px; }
+    .guestbook-form input, .guestbook-form button { width: 100%; min-width: auto !important; }
+}
+
+/* --- REPRODUCTOR DE AMBIENTE (LLUVIA) --- */
+#rain-mode-btn {
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+    line-height: 1;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+    filter: grayscale(100%);
+}
+#rain-mode-btn:hover {
+    transform: scale(1.1);
+    opacity: 1;
+    filter: grayscale(0%);
+}
+#rain-mode-btn.is-playing {
+    opacity: 1;
+    filter: grayscale(0%);
+    animation: rainGlow 3s infinite alternate;
+}
+@keyframes rainGlow {
+    from { text-shadow: 0 0 5px rgba(100, 149, 237, 0.2); }
+    to { text-shadow: 0 0 15px rgba(100, 149, 237, 0.6); }
+}
+body.zen-active #rain-mode-btn {
+    color: var(--text-accent);
+}
+
+/* --- BARRA DE PROGRESO DE LECTURA --- */
+#reading-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background-color: var(--text-accent);
+    width: 0%;
+    transition: width 0.1s ease-out;
+    z-index: 50;
+    border-radius: 12px 0 0 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+body.zen-active #reading-progress-bar {
+    background-color: var(--text-accent);
+    box-shadow: 0 0 8px rgba(192, 178, 131, 0.6);
+    height: 3px;
+}
+
+/* --- CURSOR PERSONALIZADO (SOLUCIÓN DEFINITIVA) --- */
+
+/* 1. ESTADO NORMAL (Punto sólido) */
+html, body {
+    cursor: url('data:image/svg+xml;utf8,<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="3" fill="%235D4A3C" opacity="0.9"/></svg>') 16 16, auto !important;
+}
+
+/* 2. ESTADO INTERACTIVO (Aro dorado) - AL PASAR POR ENCIMA */
+/* Aquí listamos TODO lo que se puede clicar en tu web */
+a, 
+button, 
+input[type="submit"], 
+input[type="button"],
+.logo, 
+.carousel-btn, 
+.carousel-slide, 
+.image-link-item, 
+.book-section, 
+.show-more-btn, 
+.tag-filter,
+.close-search-btn, 
+.close-entry-btn,
+#zen-mode-btn, 
+#rain-mode-btn, 
+#search-icon-btn,
+.timeline-title,
+/* AQUÍ ESTÁ LA CLAVE PARA EL MENÚ: */
+nav ul li, 
+li[data-section], 
+li[data-subsection] 
+{
+    cursor: url('data:image/svg+xml;utf8,<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="7" fill="none" stroke="%237b6f52" stroke-width="1.5"/></svg>') 16 16, pointer !important;
+}
+
+/* --- AJUSTES PARA MODO ZEN (Oscuro) --- */
+
+/* 1. Normal Zen: Punto blanco */
+body.zen-active {
+    cursor: url('data:image/svg+xml;utf8,<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="3" fill="%23e0e0e0" opacity="0.9"/></svg>') 16 16, auto !important;
+}
+
+/* 2. Interactivo Zen: Aro dorado claro */
+body.zen-active a, 
+body.zen-active button, 
+body.zen-active nav ul li,
+body.zen-active li[data-section],
+body.zen-active li[data-subsection],
+body.zen-active .logo, 
+body.zen-active .carousel-btn,
+body.zen-active .image-link-item,
+body.zen-active .book-section,
+body.zen-active .show-more-btn,
+body.zen-active .tag-filter,
+body.zen-active .close-search-btn, 
+body.zen-active .close-entry-btn,
+body.zen-active #zen-mode-btn, 
+body.zen-active #rain-mode-btn, 
+body.zen-active #search-icon-btn,
+body.zen-active .timeline-title
+{
+    cursor: url('data:image/svg+xml;utf8,<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="7" fill="none" stroke="%23c0b283" stroke-width="1.5"/></svg>') 16 16, pointer !important;
+}
+
+/* --- ESTILOS UNIFICADOS PARA LAS ENTRADAS (FRAGMENTOS) --- */
+/* ESTOS SON LOS ÚNICOS ESTILOS PARA EL VISOR QUE NECESITAS */
+
+#entry-viewer-content {
+    font-family: 'Merriweather', serif;
+    color: var(--text-main);
+    line-height: 1.8;
+    font-size: 1.15rem;
+    padding-bottom: 50px;
+}
+#entry-viewer-content h1,
+#entry-viewer-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-main);
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#entry-viewer-content p { margin-bottom: 20px; }
+#entry-viewer-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* MODO ZEN EN ENTRADAS */
+body.zen-active #entry-viewer-content { color: #e0e0e0; }
+body.zen-active #entry-viewer-content h1,
+body.zen-active #entry-viewer-content h2 {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+body.zen-active #entry-viewer-content a { color: var(--text-accent); }
+body.zen-active #entry-viewer-content img {
+    filter: brightness(0.7) grayscale(30%);
+    box-shadow: none;
+    transition: filter 0.3s ease;
+}
+body.zen-active #entry-viewer-content img:hover { filter: brightness(1) grayscale(0%); }
+body.zen-active #entry-viewer-content blockquote {
+    background-color: rgba(255,255,255,0.05);
+    border-left: 4px solid var(--text-accent);
+    color: #ccc;
+    padding: 10px 20px;
+}
+
+/* --- ESTILOS ICONOS REDES SOCIALES --- */
+
+.social-icons-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Espacio entre iconos */
+    margin-top: 20px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;          /* Tamaño del círculo */
+    height: 60px;
+    border: 1px solid var(--text-main); /* Borde fino y elegante */
+    border-radius: 50%;   /* Lo hace totalmente redondo */
+    color: var(--text-main);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote suave */
+    background-color: transparent;
+}
+
+.social-btn svg {
+    width: 24px;
+    height: 24px;
+    stroke-width: 1.5; /* Líneas finas para que sea minimalista */
+    transition: stroke 0.3s;
+}
+
+/* Efecto Hover (al pasar el ratón) */
+.social-btn:hover {
+    background-color: var(--text-main); /* Se rellena de color */
+    color: var(--bg-card); /* El icono se vuelve claro */
+    transform: translateY(-8px) scale(1.1); /* Sube y crece un poco */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Sombra elegante */
+    border-color: var(--text-main);
+}
+
+/* --- ADAPTACIÓN AL MODO ZEN (Oscuro) --- */
+body.zen-active .social-btn {
+    border-color: var(--text-accent); /* Borde dorado/beige */
+    color: var(--text-accent);
+}
+
+body.zen-active .social-btn:hover {
+    background-color: var(--text-accent); /* Relleno dorado */
+    color: #111; /* Icono oscuro */
+    box-shadow: 0 0 15px rgba(192, 178, 131, 0.4); /* Brillo dorado */
+}
