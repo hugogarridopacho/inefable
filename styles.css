@@ -858,3 +858,29 @@ body.zen-active .social-btn:hover {
     color: #111; /* Icono oscuro */
     box-shadow: 0 0 15px rgba(192, 178, 131, 0.4); /* Brillo dorado */
 }
+
+/* --- MINIATURAS DEL ÍNDICE VISIBLES --- */
+.timeline-thumb {
+    display: block !important;    /* Obliga a mostrar la imagen */
+    width: 100%;                  /* Que ocupe el ancho disponible */
+    max-width: 350px;             /* Pero que no sea gigante (tope 350px) */
+    height: 180px;                /* Altura fija para que todas sean iguales */
+    object-fit: cover;            /* Recorte perfecto (no se deforma) */
+    border-radius: 8px;           /* Bordes suaves */
+    margin-top: 15px;             /* Separación de arriba */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombrita suave */
+    transition: transform 0.3s ease;
+}
+
+/* Efecto al pasar el ratón */
+.timeline-thumb:hover {
+    transform: scale(1.02);
+}
+
+/* Ajuste para que el contenedor de etiquetas permita que la imagen baje */
+.timeline-tags {
+    display: flex;
+    flex-wrap: wrap; /* Permite que la imagen baje a la siguiente línea */
+    align-items: center;
+    gap: 10px;
+}
