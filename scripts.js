@@ -508,22 +508,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 // =========================================================
-    // 10. INTERCEPTOR DE CLICS GLOBAL (EL PEGAMENTO) - MEJORADO
+    // 10. INTERCEPTOR DE CLICS GLOBAL (EL PEGAMENTO) - VERSIÓN DEFINITIVA
     // =========================================================
     
+    // Detectamos clics en TODA la página para ser más robustos
     document.addEventListener('click', (e) => {
-        // Detectar si el clic es en un enlace (o algo dentro de un enlace)
-        // que esté dentro de nuestras listas (.timeline-title o .category-list)
-        const link = e.target.closest('.timeline-title a, .category-list a');
+        // Buscamos si el clic fue en un enlace (<a>) o dentro de uno
+        const link = e.target.closest('a');
 
-        // Si encontramos un enlace válido...
-        if (link) {
+        // Si no es un enlace, no hacemos nada
+        if (!link) return;
+
+        // Comprobamos si el enlace está dentro de alguna de tus listas
+        // (Buscamos si tiene un "padre" que sea una de tus listas)
+        const listaPadre = link.closest('#lista-indice-completo, #lista-poesia, #lista-reflexion, #lista-musica');
+
+        if (listaPadre) {
             const url = link.getAttribute('href');
             
-            // Verificamos que sea un enlace interno y no vacío
-            if (url && url !== '#' && !url.startsWith('http') && !url.startsWith('mailto:')) {
+            // Si es un enlace válido y lleva a un archivo .html interno (no a google, twitter, etc.)
+            if (url && url.includes('.html') && !url.startsWith('http') && !url.startsWith('#')) {
                 e.preventDefault(); // ¡STOP! No cambies de página
-                console.log("Abriendo en visor:", url); // Para depurar si hace falta
+                console.log("Abriendo en visor:", url); // Chivato en consola por si acaso
                 loadEntry(url);
             }
         }
