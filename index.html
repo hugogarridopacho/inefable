@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Petricor | Hugo Garrido</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <header id="main-header">
+    <a class="logo" data-section="inicio">
+        <img src="src/img/logo.png" alt="Logo Hugo Garrido" />
+        <span>Hugo Garrido Pacho</span>
+    </a>
+
+    <div class="nav-wrapper">
+        <nav>
+            <ul>
+                <li data-section="inicio" class="active-link">Inicio</li>
+                <li data-section="indice">Índice</li>
+                <li data-section="guestbook">Libro de Visitas</li> 
+                <li data-section="contacto">Contacto</li>
+            </ul>
+        </nav>
+
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <button id="zen-mode-btn" title="Modo Lectura Zen" aria-label="Activar modo lectura">
+                ☯
+            </button>
+            <button id="rain-mode-btn" title="Activar sonido de lluvia" aria-label="Reproducir lluvia">
+                🌧️
+            </button>
+
+            <audio id="rain-audio" loop>
+                <source src="src/lluvia-relajante-rain-2-210937.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+</header>
+
+    <main>
+        <section id="inicio" class="active">
+
+            <div class="reveal" style="text-align: center; margin-bottom: 40px;">
+                <h1 id="typewriter-title" style="min-height: 1.2em; display: inline-block; border-right: 3px solid var(--text-main);"></h1>
+                <p style="color: var(--text-accent); font-style: italic; margin-top: 10px;">
+                    Un refugio para el alma, el verso y el silencio.
+                </p>
+            </div>
+
+            <div class="carousel-container reveal-zoom delay-1">
+                <div class="carousel-slide active-slide">
+                    <img src="src/img/poesia.png" alt="Poesía portada">
+                    <div class="carousel-caption">
+                        <h3>Ecos del Silencio</h3>
+                        <p>Última publicación</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="src/img/reflexiones.png" alt="Reflexión portada">
+                    <div class="carousel-caption">
+                        <h3>El tiempo y la espera</h3>
+                        <p>Reflexión destacada</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="src/img/musica.png" alt="Música portada">
+                    <div class="carousel-caption">
+                        <h3>Melodías de Lluvia</h3>
+                        <p>Composición reciente</p>
+                    </div>
+                </div>
+                <button class="carousel-btn prev-btn">&#10094;</button>
+                <button class="carousel-btn next-btn">&#10095;</button>
+            </div>
+
+            <div class="musa-section reveal delay-2">
+                <div id="musa-content" class="musa-content">"En la quietud del verso se esconde el alma."</div>
+                <button id="musa-btn" class="musa-btn">¿Necesitas inspiración?</button>
+            </div>
+
+            <div class="image-link-container">
+                <a href="#contenido" class="image-link-item reveal delay-1" data-subsection="poesia">
+                    <img src="src/img/poesia.png" alt="Poesía">
+                    <div class="overlay">Poesía</div>
+                </a>
+                <a href="#contenido" class="image-link-item reveal delay-2" data-subsection="reflexiones">
+                    <img src="src/img/reflexiones.png" alt="Reflexiones">
+                    <div class="overlay">Reflexiones</div>
+                </a>
+                <a href="#contenido" class="image-link-item reveal delay-3" data-subsection="musica">
+                    <img src="src/img/musica.png" alt="Música">
+                    <div class="overlay">Música</div>
+                </a>
+            </div>
+
+            <a href="#mi-libro" id="book-link" class="book-section reveal delay-2" style="text-decoration: none; color: inherit;">
+                <img src="src/img/portada.jpg" alt="Portada de Mi Libro">
+                <div>
+                    <h2>Mi Libro: Un Viaje Lírico</h2>
+                    <p>Explora mi primer poemario, una recopilación de versos olvidados y pensamientos nocturnos.</p>
+                </div>
+            </a>
+
+            <div class="about-section reveal delay-3">
+                <img src="src/img/yo.png" alt="Hugo Garrido">
+                <h2>¿Quién soy?</h2>
+                <p>Me llamo Hugo Garrido, nací el 12 de enero de 2006. Soy un apasionado de las letras, la música y la búsqueda constante de significado en lo cotidiano.</p>
+            </div>
+
+        </section>
+
+        <section id="contenido" class="content-card">
+             <nav>
+                <ul>
+                    <li data-subsection="poesia" class="active-subnav">Poesía</li>
+                    <li data-subsection="reflexiones">Reflexiones</li>
+                    <li data-subsection="musica">Música</li>
+                </ul>
+            </nav>
+
+            <article id="poesia" class="active-content">
+                <h2>Mis Poemas</h2>
+                <p>Aquí subiré regularmente mis poemas.</p>
+                <ul class="category-list collapsible-list" id="lista-poesia">
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2025/05/file_00000000777461f4b324eec4fa94c4508395833383585151099.png?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/definiciones-previas.html">Definiciones previas</a></h3>
+                            <span class="date">19/5/2025</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <div>
+                            <h3><a href="src/cont/poesia/erase.html">Érase</a></h3>
+                            <span class="date">10/5/2025</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <div>
+                            <h3><a href="src/cont/poesia/si-pero.html">Sí, pero…</a></h3>
+                            <span class="date">10/4/2025</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2025/03/748eb080-7eb5-4414-9e9b-ff8552fe90b9.webp" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/sobre-la-pasion-y-el-amor.html">Sobre la pasión y el amor</a></h3>
+                            <span class="date">27/3/2025</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2025/03/file-xkfrzgu6qsy8qyjwrqkk4l5171688829560207441.jpg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/cuanto-te-conoces.html">¿Cuánto te conoces?</a></h3>
+                            <span class="date">21/3/2025</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2025/02/9f8e3a0d-306b-4571-8279-18583a871b82.jpg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/pequeno-amor.html">Pequeño amor</a></h3>
+                            <span class="date">20/2/2025</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2025/02/b79aea4a-e7a4-4415-8136-f6eeafe98423.jpg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/11.html">1+1</a></h3>
+                            <span class="date">12/2/2025</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2025/02/dallc2b7e-2025-02-04-20.40.36-a-vanguardist-and-abstract-digital-artwork-illustrating-themes-of-time-routine-and-existential-struggle-but-without-any-clocks.-a-fragmented-human-.webp?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/siervo-del-tiempo.html">Siervo del tiempo</a></h3>
+                            <span class="date">4/2/2025</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2025/01/file-xofkdqpcertmat7tzsrdwx9140065119016506051.jpg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/el-puente-roto.html">El puente roto</a></h3>
+                            <span class="date">29/1/2025</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2025/01/20252c0_05_22_20250122_113038_00004566946669020234857.jpg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/oda-al-tiempo.html">¿Oda? al tiempo</a></h3>
+                            <span class="date">22/1/2025</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqc.art.blog/wp-content/uploads/2025/01/file-xnrtkyvbvdf5q8y8f8q99k281294732564385169048205.jpg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/palabras-actos-y-viceversa.html">Palabras, actos y viceversa</a></h3>
+                            <span class="date">7/1/2025</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqc.art.blog/wp-content/uploads/2025/01/file-jc9cdpsawkhfw6debkr2vu281298881719839799509191.jpg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/perdido.html">Perdido</a></h3>
+                            <span class="date">1/1/2025</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqc.art.blog/wp-content/uploads/2024/10/file-wdo3vuaujvaafhtewqdvubox2149126418978572877.jpg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/a-la-hoja-de-papel.html">A la hoja de papel</a></h3>
+                            <span class="date">27/10/2024</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqc.art.blog/wp-content/uploads/2024/10/image_editor_output_image1021589139-17294912027493533054742101633236.png?w=787" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/te-quiero.html">Te quiero</a></h3>
+                            <span class="date">21/10/2024</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqc.art.blog/wp-content/uploads/2024/10/img-20241004-wa00081377736637701287834.jpg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/raro.html">Raro</a></h3>
+                            <span class="date">4/10/2024</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqc.art.blog/wp-content/uploads/2024/09/7a1652bc-1480-48d0-a2b8-08498f0801ec-1_all_102446855620280205859816.jpg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/ahora-que-estas-a-mi-lado.html">Ahora que estás a mi lado</a></h3>
+                            <span class="date">18/9/2024</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqc.art.blog/wp-content/uploads/2024/07/oig31227050807899265677.jpg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/el-adios.html">El adiós</a></h3>
+                            <span class="date">14/7/2024</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqc.art.blog/wp-content/uploads/2024/06/oig34542834079780934823.jpg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/amor-fati.html">Amor fati</a></h3>
+                            <span class="date">24/6/2024</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqc.art.blog/wp-content/uploads/2024/06/oig45582013564691290942.jpg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/tirate-al-vacio.html">Tírate al vacío</a></h3>
+                            <span class="date">6/6/2024</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2024/05/oig25750384271029885672.jpg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/a-tu-lado.html">A tu lado</a></h3>
+                            <span class="date">5/5/2024</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2024/04/gene-kelly-singin-in-the-rain-19526911649707408039859.jpg?w=820" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/singin-in-the-rain.html">Singin’ in the rain</a></h3>
+                            <span class="date">14/4/2024</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2024/04/eyj0exaioijkv1qilcjhbgcioijiuzi1nij9105817833266359873.jpg?w=600" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/entre-los-poros-de-la-tierra.html">Entre los poros de la Tierra</a></h3>
+                            <span class="date">2/4/2024</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2024/03/oig24199385430451181392.jpg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/dichosa-mente-mia.html">Dichosa mente mía</a></h3>
+                            <span class="date">21/3/2024</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2024/03/oig14876266374576351301.jpg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/la-cancion-del-enamorado.html">La canción del enamorado</a></h3>
+                            <span class="date">2/3/2024</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2024/02/10000409092793111191332312250.jpg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/el-sol-saldra-de-nuevo.html">El Sol saldrá de nuevo</a></h3>
+                            <span class="date">29/2/2024</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2024/02/oig43149201013479131252.jpg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/para-siempre.html">Para siempre</a></h3>
+                            <span class="date">19/2/2024</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2023/12/oig28529.jpeg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/se-riega.html">Se riega</a></h3>
+                            <span class="date">8/12/2023</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2023/12/oig6784947514761575613.jpeg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/que-te-zurzan-futuro.html">Que te zurzan, futuro</a></h3>
+                            <span class="date">15/12/2023</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2023/11/image_editor_output_image-1188534923-1701384071229.png?w=347" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/las-estrofas-de-mi-madre.html">Las estrofas de mi madre</a></h3>
+                            <span class="date">1/12/2023</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2023/11/oig28429.jpeg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/palabras.html">Palabras</a></h3>
+                            <span class="date">24/11/2023</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2023/11/oig28329.jpeg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/el-mundo.html">El mundo</a></h3>
+                            <span class="date">17/11/2023</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2023/11/image_editor_output_image735306519-1699569234550.jpg?w=557" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/resistire.html">Resistiré</a></h3>
+                            <span class="date">10/11/2023</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2023/11/oig.jpeg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/paz.html">Paz</a></h3>
+                            <span class="date">3/11/2023</span>
+                        </div>
+                    </li>
+                    <li><h3><a href="src/cont/poesia/eso-quisiera-yo-2.html">Eso quisiera yo</a></h3><span class="date">27/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/migajas-de-amor.html">Migajas de amor</a></h3><span class="date">18/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/entiendeme.html">Entiéndeme</a></h3><span class="date">18/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/guitarra-mia.html">Guitarra mía</a></h3><span class="date">18/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/ni-una-vez.html">Ni una vez</a></h3><span class="date">18/10/2023</span></li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2023/10/oig.gvoak1_hcu.jpeg?w=1024" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/poesia/la-vida.html">La vida</a></h3>
+                            <span class="date">18/10/2023</span>
+                        </div>
+                    </li>
+                    <li><h3><a href="src/cont/poesia/donde-tu-vayas.html">Donde tú vayas</a></h3><span class="date">18/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/no-tuve-agallas.html">No tuve agallas</a></h3><span class="date">18/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/no-me-preguntes-preguntame.html">No me preguntes (pregúntame)</a></h3><span class="date">18/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/pero-no-me-miraste.html">Pero no me miraste</a></h3><span class="date">18/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/quiero-que-seas-mia.html">Quiero que seas mía</a></h3><span class="date">18/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/pongamos-que-hablo-de-una-oruga.html">Pongamos que hablo de una oruga</a></h3><span class="date">18/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/padre-mio.html">Padre mío</a></h3><span class="date">18/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/tal-vez.html">Tal vez</a></h3><span class="date">18/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/poema-de-poemas-ii.html">Poema de poemas II</a></h3><span class="date">18/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/libertad-ii.html">Libertad II</a></h3><span class="date">18/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/no-gracias.html">No gracias</a></h3><span class="date">18/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/maldita-seas.html">Maldita seas</a></h3><span class="date">18/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/como-las-hojas-de-otono.html">Como las hojas de otoño</a></h3><span class="date">18/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/cuando-te-vas.html">Cuando te vas</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/no-llegamos.html">No llegamos</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/no-lo-ves.html">¿No lo ves?</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/la-inspiracion.html">La inspiración</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/la-vida-puede-cambiarte-en-un-segundo.html">La vida puede cambiarte en un segundo</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/opinion-de-la-gente.html">Opinión de la gente</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/como-se-vive.html">¿Cómo se vive?</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/para-esa-gente-de-mi-talla-para-la-que-no-necesito-calzador.html">Para esa gente de mi talla para la que no necesito calzador</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/mi-corazon.html">Mi corazón</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/oscuridad.html">Oscuridad</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/el-tren.html">El tren</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/cerca-de-ti.html">Cerca de ti</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/si.html">Sí</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/soluna.html">Soluna</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/abrazame.html">Abrázame</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/amarse-a-si.html">Amarse a sí</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/poema-de-poemas.html">Poema de poemas</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/me-fui.html">Me fui</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/hoy-si.html">Hoy sí</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/por-dentro.html">Por dentro</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/en-ese-cuando.html">En ese cuándo</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/felicidad.html">Felicidad</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/entre-nosotros.html">Entre nosotros</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/conciencia.html">Conciencia</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/de-tanto-mirarte.html">De tanto mirarte</a></h3><span class="date">17/10/2023</span></li>
+                    <li><h3><a href="src/cont/poesia/caramelos-en-el-suelo-del-pasillo.html">Caramelos en el suelo del pasillo</a></h3><span class="date">17/10/2023</span></li>
+                </ul>
+                <button class="show-more-btn" data-target="lista-poesia">Ver más</button>
+            </article>
+
+            <article id="reflexiones">
+                <h2>Reflexiones</h2>
+                <p>Textos de reflexión personal.</p>
+                <ul class="category-list collapsible-list" id="lista-reflexion">
+                    <li style="display: flex; align-items: center;">
+                        <img src="src/cont/reflexion/images/reflexiones.png" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/reflexion/el-amor-pero-de-verdad.html">El amor, pero de verdad</a></h3>
+                            <span class="date">25/4/2024</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="src/cont/reflexion/images/reflexiones.png" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/reflexion/en-torno-a-la-amistad.html">En torno a la amistad</a></h3>
+                            <span class="date">3/4/2025</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="src/cont/reflexion/images/reflexiones.png" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/reflexion/casualidad-o-causalidad.html">Casualidad o causalidad</a></h3>
+                            <span class="date">3/3/2024</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="src/cont/reflexion/images/reflexiones.png" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/reflexion/el-fracaso.html">El fracaso</a></h3>
+                            <span class="date">18/10/2023</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="src/cont/reflexion/images/reflexiones.png" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/reflexion/la-desnudez.html">La desnudez</a></h3>
+                            <span class="date">18/10/2023</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="src/cont/reflexion/images/reflexiones.png" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/reflexion/la-simpleza.html">La simpleza</a></h3>
+                            <span class="date">18/10/2023</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="src/cont/reflexion/images/reflexiones.png" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/reflexion/limite-entre-el-bien-y-el-mal.html">Límite entre el bien y el mal</a></h3>
+                            <span class="date">18/10/2023</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="src/cont/reflexion/images/reflexiones.png" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/reflexion/dios-el-cubo-de-las-mil-caras.html">Dios, el cubo de las mil caras</a></h3>
+                            <span class="date">18/10/2023</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="src/cont/reflexion/images/reflexiones.png" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/reflexion/teoria-del-reseteo.html">Teoría del reseteo</a></h3>
+                            <span class="date">18/10/2023</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="src/cont/reflexion/images/reflexiones.png" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/reflexion/el-futuro.html">El futuro</a></h3>
+                            <span class="date">18/10/2023</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="src/cont/reflexion/images/reflexiones.png" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/reflexion/alegoria-del-montanero.html">Alegoría del montañero</a></h3>
+                            <span class="date">18/10/2023</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="src/cont/reflexion/images/reflexiones.png" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/reflexion/el-homo-sapiens.html">El homo sapiens</a></h3>
+                            <span class="date">18/10/2023</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="src/cont/reflexion/images/reflexiones.png" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/reflexion/la-amistad-estamental.html">La amistad estamental</a></h3>
+                            <span class="date">18/10/2023</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="src/cont/reflexion/images/reflexiones.png" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/reflexion/libertad-e-igualdad.html">Libertad e igualdad</a></h3>
+                            <span class="date">18/10/2023</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <img src="src/cont/reflexion/images/reflexiones.png" class="cat-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;" loading="lazy">
+                        <div>
+                            <h3><a href="src/cont/reflexion/nunca-hemos-visto-una-persona.html">Nunca hemos visto una persona</a></h3>
+                            <span class="date">18/10/2023</span>
+                        </div>
+                    </li>
+                </ul>
+                <button class="show-more-btn" data-target="lista-reflexion">Ver más</button>
+            </article>
+
+            <article id="musica">
+                <h2>Música</h2>
+                <p>Mis composiciones y videos.</p>
+                <ul class="category-list collapsible-list" id="lista-musica">
+                    <li><h3><a href="src/cont/musica/let-it-be-impro.html">Let it be (impro)</a></h3><span class="date">6/3/2025</span></li>
+                    <li><h3><a href="src/cont/musica/fur-elise.html">Für Elise</a></h3><span class="date">15/1/2025</span></li>
+                    <li><h3><a href="src/cont/musica/interstellar.html">Interstellar</a></h3><span class="date">14/10/2024</span></li>
+                    <li><h3><a href="src/cont/musica/hijo-de-la-luna.html">Hijo de la luna</a></h3><span class="date">14/10/2024</span></li>
+                    <li><h3><a href="src/cont/musica/piratas-del-caribe.html">Piratas del Caribe</a></h3><span class="date">15/5/2024</span></li>
+                    <li><h3><a href="src/cont/musica/concierto-de-aranjuez-adagio.html">Concierto de Aranjuez (adagio)</a></h3><span class="date">2/3/2024</span></li>
+                    <li><h3><a href="src/cont/musica/seven-nations-army.html">Seven Nations Army</a></h3><span class="date">6/1/2024</span></li>
+                    <li><h3><a href="src/cont/musica/12-bar-blues-en-la-menor.html">12 bar blues en LA menor</a></h3><span class="date">1/1/2024</span></li>
+                    <li><h3><a href="src/cont/musica/tu-jardin-con-enanitos-intro.html">Tu jardín con enanitos (intro)</a></h3><span class="date">1/1/2024</span></li>
+                    <li><h3><a href="src/cont/musica/brandle.html">Brandle</a></h3><span class="date">1/1/2024</span></li>
+                    <li><h3><a href="src/cont/musica/andantino-en-la-menor.html">Andantino en LA menor</a></h3><span class="date">1/1/2024</span></li>
+                    <li><h3><a href="src/cont/musica/a-vivir.html">A vivir</a></h3><span class="date">18/10/2023</span></li>
+                    <li><h3><a href="src/cont/musica/golpe-de-realidad.html">Golpe de realidad</a></h3><span class="date">18/10/2023</span></li>
+                    <li><h3><a href="src/cont/musica/la-curiosidad-mato-al-gato.html">La curiosidad mató al gato</a></h3><span class="date">18/10/2023</span></li>
+                    <li><h3><a href="src/cont/musica/brucia-la-terra.html">Brucia la terra</a></h3><span class="date">18/10/2023</span></li>
+                </ul>
+                <button class="show-more-btn" data-target="lista-musica">Ver más</button>
+            </article>
+        </section>
+
+        <section id="indice" class="content-card">
+            <div class="index-header reveal">
+                <h2>Índice de Entradas</h2>
+                <button id="search-icon-btn" aria-label="Abrir buscador" title="Buscar en el índice">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+            </div>
+            <p class="reveal">Todas mis publicaciones ordenadas desde la más reciente.</p>
+
+            <ul class="timeline-list" id="lista-indice-completo">
+                
+                <li data-tipo="poesia" data-tema="poesia" data-img="https://eldlqcart.wordpress.com/wp-content/uploads/2025/05/file_00000000777461f4b324eec4fa94c4508395833383585151099.png?w=1024">
+                    <div class="timeline-date">19/5/2025</div>
+                    <h3 class="timeline-title"><a href="src/cont/poesia/definiciones-previas.html">Definiciones previas</a></h3>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag tag-tipo">Poesía</span>
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2025/05/file_00000000777461f4b324eec4fa94c4508395833383585151099.png?w=1024" alt="Miniatura" class="timeline-thumb">
+                    </div>
+                </li>
+
+                <li data-tipo="poesia" data-tema="poesia">
+                    <div class="timeline-date">10/5/2025</div>
+                    <h3 class="timeline-title"><a href="src/cont/poesia/erase.html">Érase</a></h3>
+                    <div class="timeline-tags"><span class="timeline-tag tag-tipo">Poesía</span></div>
+                </li>
+
+                <li data-tipo="poesia" data-tema="poesia">
+                    <div class="timeline-date">10/4/2025</div>
+                    <h3 class="timeline-title"><a href="src/cont/poesia/si-pero.html">Sí, pero…</a></h3>
+                    <div class="timeline-tags"><span class="timeline-tag tag-tipo">Poesía</span></div>
+                </li>
+                
+                <li data-tipo="reflexion" data-tema="reflexion amistad" data-img="src/cont/reflexion/images/reflexiones.png">
+                    <div class="timeline-date">3/4/2025</div>
+                    <h3 class="timeline-title"><a href="src/cont/reflexion/en-torno-a-la-amistad.html">En torno a la amistad</a></h3>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag tag-tipo">Reflexión</span>
+                        <span class="timeline-tag tag-tema">Amistad</span>
+                        <img src="src/cont/reflexion/images/reflexiones.png" alt="Miniatura" class="timeline-thumb">
+                    </div>
+                </li>
+
+                <li data-tipo="poesia" data-tema="poesia" data-img="https://eldlqcart.wordpress.com/wp-content/uploads/2025/03/748eb080-7eb5-4414-9e9b-ff8552fe90b9.webp">
+                    <div class="timeline-date">27/3/2025</div>
+                    <h3 class="timeline-title"><a href="src/cont/poesia/sobre-la-pasion-y-el-amor.html">Sobre la pasión y el amor</a></h3>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag tag-tipo">Poesía</span>
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2025/03/748eb080-7eb5-4414-9e9b-ff8552fe90b9.webp" alt="Miniatura" class="timeline-thumb">
+                    </div>
+                </li>
+
+                <li data-tipo="poesia" data-tema="poesia" data-img="https://eldlqcart.wordpress.com/wp-content/uploads/2025/03/file-xkfrzgu6qsy8qyjwrqkk4l5171688829560207441.jpg?w=1024">
+                    <div class="timeline-date">21/3/2025</div>
+                    <h3 class="timeline-title"><a href="src/cont/poesia/cuanto-te-conoces.html">¿Cuánto te conoces?</a></h3>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag tag-tipo">Poesía</span>
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2025/03/file-xkfrzgu6qsy8qyjwrqkk4l5171688829560207441.jpg?w=1024" alt="Miniatura" class="timeline-thumb">
+                    </div>
+                </li>
+
+                <li data-tipo="musica" data-tema="musica impro">
+                    <div class="timeline-date">6/3/2025</div>
+                    <h3 class="timeline-title"><a href="src/cont/musica/let-it-be-impro.html">Let it be (impro)</a></h3>
+                    <div class="timeline-tags"><span class="timeline-tag tag-tipo">Música</span></div>
+                </li>
+
+                <li data-tipo="poesia" data-tema="poesia" data-img="https://eldlqcart.wordpress.com/wp-content/uploads/2025/02/9f8e3a0d-306b-4571-8279-18583a871b82.jpg?w=1024">
+                    <div class="timeline-date">20/2/2025</div>
+                    <h3 class="timeline-title"><a href="src/cont/poesia/pequeno-amor.html">Pequeño amor</a></h3>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag tag-tipo">Poesía</span>
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2025/02/9f8e3a0d-306b-4571-8279-18583a871b82.jpg?w=1024" alt="Miniatura" class="timeline-thumb">
+                    </div>
+                </li>
+
+                <li data-tipo="poesia" data-tema="poesia" data-img="https://eldlqcart.wordpress.com/wp-content/uploads/2025/02/b79aea4a-e7a4-4415-8136-f6eeafe98423.jpg?w=1024">
+                    <div class="timeline-date">12/2/2025</div>
+                    <h3 class="timeline-title"><a href="src/cont/poesia/11.html">1+1</a></h3>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag tag-tipo">Poesía</span>
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2025/02/b79aea4a-e7a4-4415-8136-f6eeafe98423.jpg?w=1024" alt="Miniatura" class="timeline-thumb">
+                    </div>
+                </li>
+
+                <li data-tipo="poesia" data-tema="poesia" data-img="https://eldlqcart.wordpress.com/wp-content/uploads/2025/02/dallc2b7e-2025-02-04-20.40.36-a-vanguardist-and-abstract-digital-artwork-illustrating-themes-of-time-routine-and-existential-struggle-but-without-any-clocks.-a-fragmented-human-.webp?w=1024">
+                    <div class="timeline-date">4/2/2025</div>
+                    <h3 class="timeline-title"><a href="src/cont/poesia/siervo-del-tiempo.html">Siervo del tiempo</a></h3>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag tag-tipo">Poesía</span>
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2025/02/dallc2b7e-2025-02-04-20.40.36-a-vanguardist-and-abstract-digital-artwork-illustrating-themes-of-time-routine-and-existential-struggle-but-without-any-clocks.-a-fragmented-human-.webp?w=1024" alt="Miniatura" class="timeline-thumb">
+                    </div>
+                </li>
+
+                <li data-tipo="poesia" data-tema="poesia" data-img="https://eldlqcart.wordpress.com/wp-content/uploads/2025/01/file-xofkdqpcertmat7tzsrdwx9140065119016506051.jpg?w=1024">
+                    <div class="timeline-date">29/1/2025</div>
+                    <h3 class="timeline-title"><a href="src/cont/poesia/el-puente-roto.html">El puente roto</a></h3>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag tag-tipo">Poesía</span>
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2025/01/file-xofkdqpcertmat7tzsrdwx9140065119016506051.jpg?w=1024" alt="Miniatura" class="timeline-thumb">
+                    </div>
+                </li>
+
+                <li data-tipo="poesia" data-tema="poesia" data-img="https://eldlqcart.wordpress.com/wp-content/uploads/2025/01/20252c0_05_22_20250122_113038_00004566946669020234857.jpg?w=1024">
+                    <div class="timeline-date">22/1/2025</div>
+                    <h3 class="timeline-title"><a href="src/cont/poesia/oda-al-tiempo.html">¿Oda? al tiempo</a></h3>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag tag-tipo">Poesía</span>
+                        <img src="https://eldlqcart.wordpress.com/wp-content/uploads/2025/01/20252c0_05_22_20250122_113038_00004566946669020234857.jpg?w=1024" alt="Miniatura" class="timeline-thumb">
+                    </div>
+                </li>
+
+                <li data-tipo="musica" data-tema="musica clasica">
+                    <div class="timeline-date">15/1/2025</div>
+                    <h3 class="timeline-title"><a href="src/cont/musica/fur-elise.html">Für Elise</a></h3>
+                    <div class="timeline-tags"><span class="timeline-tag tag-tipo">Música</span></div>
+                </li>
+
+                <li data-tipo="poesia" data-tema="poesia" data-img="https://eldlqc.art.blog/wp-content/uploads/2025/01/file-xnrtkyvbvdf5q8y8f8q99k281294732564385169048205.jpg?w=1024">
+                    <div class="timeline-date">7/1/2025</div>
+                    <h3 class="timeline-title"><a href="src/cont/poesia/palabras-actos-y-viceversa.html">Palabras, actos y viceversa</a></h3>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag tag-tipo">Poesía</span>
+                        <img src="https://eldlqc.art.blog/wp-content/uploads/2025/01/file-xnrtkyvbvdf5q8y8f8q99k281294732564385169048205.jpg?w=1024" alt="Miniatura" class="timeline-thumb">
+                    </div>
+                </li>
+
+                <li data-tipo="poesia" data-tema="poesia" data-img="https://eldlqc.art.blog/wp-content/uploads/2025/01/file-jc9cdpsawkhfw6debkr2vu281298881719839799509191.jpg?w=1024">
+                    <div class="timeline-date">1/1/2025</div>
+                    <h3 class="timeline-title"><a href="src/cont/poesia/perdido.html">Perdido</a></h3>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag tag-tipo">Poesía</span>
+                        <img src="https://eldlqc.art.blog/wp-content/uploads/2025/01/file-jc9cdpsawkhfw6debkr2vu281298881719839799509191.jpg?w=1024" alt="Miniatura" class="timeline-thumb">
+                    </div>
+                </li>
+
+                <li data-tipo="poesia" data-tema="poesia" data-img="https://eldlqc.art.blog/wp-content/uploads/2024/10/file-wdo3vuaujvaafhtewqdvubox2149126418978572877.jpg?w=1024">
+                    <div class="timeline-date">27/10/2024</div>
+                    <h3 class="timeline-title"><a href="src/cont/poesia/a-la-hoja-de-papel.html">A la hoja de papel</a></h3>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag tag-tipo">Poesía</span>
+                        <img src="https://eldlqc.art.blog/wp-content/uploads/2024/10/file-wdo3vuaujvaafhtewqdvubox2149126418978572877.jpg?w=1024" alt="Miniatura" class="timeline-thumb">
+                    </div>
+                </li>
+
+                <li data-tipo="poesia" data-tema="poesia amor" data-img="https://eldlqc.art.blog/wp-content/uploads/2024/10/image_editor_output_image1021589139-17294912027493533054742101633236.png?w=787">
+                    <div class="timeline-date">21/10/2024</div>
+                    <h3 class="timeline-title"><a href="src/cont/poesia/te-quiero.html">Te quiero</a></h3>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag tag-tipo">Poesía</span>
+                        <img src="https://eldlqc.art.blog/wp-content/uploads/2024/10/image_editor_output_image1021589139-17294912027493533054742101633236.png?w=787" alt="Miniatura" class="timeline-thumb">
+                    </div>
+                </li>
+
+                <li data-tipo="musica" data-tema="musica cine">
+                    <div class="timeline-date">14/10/2024</div>
+                    <h3 class="timeline-title"><a href="src/cont/musica/interstellar.html">Interstellar</a></h3>
+                    <div class="timeline-tags"><span class="timeline-tag tag-tipo">Música</span></div>
+                </li>
+
+                <li data-tipo="musica" data-tema="musica version">
+                    <div class="timeline-date">14/10/2024</div>
+                    <h3 class="timeline-title"><a href="src/cont/musica/hijo-de-la-luna.html">Hijo de la luna</a></h3>
+                    <div class="timeline-tags"><span class="timeline-tag tag-tipo">Música</span></div>
+                </li>
+
+                <li data-tipo="poesia" data-tema="poesia desamor" data-img="https://eldlqc.art.blog/wp-content/uploads/2024/10/img-20241004-wa00081377736637701287834.jpg?w=1024">
+                    <div class="timeline-date">4/10/2024</div>
+                    <h3 class="timeline-title"><a href="src/cont/poesia/raro.html">Raro</a></h3>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag tag-tipo">Poesía</span>
+                        <img src="https://eldlqc.art.blog/wp-content/uploads/2024/10/img-20241004-wa00081377736637701287834.jpg?w=1024" alt="Miniatura" class="timeline-thumb">
+                    </div>
+                </li>
+                
+                <li class="no-results-message">
+                    <p>No se han encontrado entradas que coincidan con tu búsqueda.</p>
+                </li>
+            </ul>
+        </section>
+        
+        <section id="mi-libro" class="content-card">
+             <h2 class="reveal">Mi Libro: Un Viaje Lírico</h2>
+            <div class="book-details reveal">
+                <img src="src/img/portada.jpg" alt="Portada Libro Grande">
+                <div>
+                    <h3>Sinopsis</h3>
+                    <p>Un recorrido emocional...</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="suscripcion" class="content-card reveal">
+            <h2>Suscríbete a mi Rincón</h2>
+            <p style="text-align: center; max-width: 500px; margin: 0 auto 25px auto;">
+                Recibe mis últimas publicaciones, poemas y reflexiones directamente en tu correo.
+            </p>
+            <form id="newsletter-form" class="newsletter-form">
+                <input type="email" id="newsletter-email" placeholder="Tu correo electrónico..." required>
+                <button type="submit">Suscribirme</button>
+            </form>
+            <p id="newsletter-thanks" class="newsletter-message" style="display: none;">¡Gracias por suscribirte!</p>
+        </section>
+
+
+        <section id="guestbook" class="content-card reveal">
+    <div style="text-align: center; max-width: 650px; margin: 0 auto;">
+
+        <h2>El Muro de los Susurros</h2>
+        <p style="color: var(--text-accent); font-style: italic; margin-bottom: 30px;">
+            "Deja aquí tu huella, un verso, o simplemente tu nombre. Haz que este espacio sea también tuyo."
+        </p>
+
+        <div id="guestbook-messages" class="guestbook-container">
+            <div class="guest-message">
+                <p class="message-text">"Tu poesía me ha tocado el alma. Gracias por compartir este rincón."</p>
+                <span class="message-author">— Ana M.</span>
+            </div>
+            <div class="guest-message">
+                <p class="message-text">"Me encanta la estética minimalista y la calma que transmite la web."</p>
+                <span class="message-author">— Viajero Digital</span>
+            </div>
+        </div>
+
+        <form id="guestbook-form" class="guestbook-form">
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+                <input type="text" id="guest-name" placeholder="Tu nombre o alias" required style="flex: 1; min-width: 140px;" autocomplete="off">
+                <input type="text" id="guest-msg" placeholder="Escribe tu mensaje..." required style="flex: 2; min-width: 200px;" autocomplete="off">
+                <button type="submit" class="musa-btn" style="border-radius: 8px; margin: 0; padding: 12px 20px;">Firmar</button>
+            </div>
+        </form>
+
+        <p id="guestbook-thanks" style="display: none; color: var(--text-accent); margin-top: 15px; font-style: italic; animation: sectionFadeIn 0.5s;">
+            ✨ ¡Gracias por dejar tu huella en el muro!
+        </p>
+
+    </div>
+</section>
+
+        <section id="contacto" class="content-card reveal">
+            <div style="text-align: center;">
+                <h2>Contacto</h2>
+                <p style="margin-bottom: 30px; color: var(--text-accent);">
+                    Sígueme en redes o escríbeme para cualquier colaboración.
+                </p>
+
+                <div class="social-icons-container">
+                    
+                    <a href="https://instagram.com/TU_USUARIO" target="_blank" class="social-btn" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+
+                    <a href="https://twitter.com/TU_USUARIO" target="_blank" class="social-btn" aria-label="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </svg>
+                    </a>
+
+                    <a href="https://tiktok.com/@TU_USUARIO" target="_blank" class="social-btn" aria-label="TikTok">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5v2a7 7 0 0 1-7-7v14z"></path>
+                        </svg>
+                    </a>
+
+                    <a href="mailto:tuemail@ejemplo.com" class="social-btn" aria-label="Email">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="search-overlay">
+        <div class="search-modal-content">
+            <span class="close-search-btn" id="close-search-btn">&times;</span>
+            <h2>Buscar en el índice</h2>
+
+            <input type="text" id="search-input" placeholder="Escribe un título o palabra clave...">
+
+            <div class="filter-group">
+                <h3>Por Tipo</h3>
+                <div class="filter-tags-container">
+                    <button class="tag-filter" data-filter-type="tipo" data-filter-value="poesia">Poesía</button>
+                    <button class="tag-filter" data-filter-type="tipo" data-filter-value="reflexion">Reflexión</button>
+                    <button class="tag-filter" data-filter-type="tipo" data-filter-value="musica">Música</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3>Por Tema</h3>
+                <div class="filter-tags-container">
+                    <button class="tag-filter" data-filter-type="tema" data-filter-value="amor">Amor</button>
+                    <button class="tag-filter" data-filter-type="tema" data-filter-value="desamor">Desamor</button>
+                    <button class="tag-filter" data-filter-type="tema" data-filter-value="profundo">Profundo</button>
+                    <button class="tag-filter" data-filter-type="tema" data-filter-value="melancolia">Melancolía</button>
+                    <button class="tag-filter" data-filter-type="tema" data-filter-value="instrumental">Instrumental</button>
+                </div>
+            </div>
+
+            <button id="clear-filters-btn">Limpiar filtros</button>
+
+        </div>
+    </div>
+
+  <div id="entry-viewer-overlay">
+        <div class="entry-viewer-modal">
+            <span id="close-entry-btn" class="close-entry-btn" title="Cerrar">&times;</span>
+            <div id="reading-progress-bar"></div>
+            <div id="entry-viewer-content"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">Twitter</a>
+            <a href="mailto:tuemail@ejemplo.com">Email</a>
+        </div>
+        <p style="margin-top: 15px;">&copy; 2025 Hugo Garrido - Todos los derechos reservados</p>
+    </footer>
+    <script src="scripts.js"></script>
+    <script src="src/particles.js-master/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#7b6f52" }, /* Color de las motas */
+                "shape": {
+                    "type": "circle",
+                    "stroke": { "width": 0, "color": "#000000" }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": true,
+                    "anim": { "enable": true, "speed": 0.5, "opacity_min": 0.1, "sync": false }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false }
+                },
+                "line_linked": { "enable": true }, /* Sin líneas, solo polvo */
+                "move": {
+                    "enable": true,
+                    "speed": 0.8,
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "bubble" },
+                    "onclick": { "enable": false, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "bubble": { "distance": 200, "size": 4, "duration": 2, "opacity": 0.6, "speed": 3 }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>
