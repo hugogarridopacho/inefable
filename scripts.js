@@ -507,20 +507,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
-    // =========================================================
-    // 10. INTERCEPTOR DE CLICS GLOBAL (EL PEGAMENTO)
+// =========================================================
+    // 10. INTERCEPTOR DE CLICS GLOBAL (EL PEGAMENTO) - MEJORADO
     // =========================================================
     
-    // Esto hace que los enlaces en las listas ABRA EL VISOR en lugar de cambiar de página
     document.addEventListener('click', (e) => {
-        // Detectar si el clic fue en un enlace dentro de las listas de contenido o índice
-        const link = e.target.closest('.timeline-title a, .category-list h3 a');
+        // Detectar si el clic es en un enlace (o algo dentro de un enlace)
+        // que esté dentro de nuestras listas (.timeline-title o .category-list)
+        const link = e.target.closest('.timeline-title a, .category-list a');
 
+        // Si encontramos un enlace válido...
         if (link) {
-            e.preventDefault(); // ¡STOP! No cambies de página
             const url = link.getAttribute('href');
-            if (url && url !== '#') {
+            
+            // Verificamos que sea un enlace interno y no vacío
+            if (url && url !== '#' && !url.startsWith('http') && !url.startsWith('mailto:')) {
+                e.preventDefault(); // ¡STOP! No cambies de página
+                console.log("Abriendo en visor:", url); // Para depurar si hace falta
                 loadEntry(url);
             }
         }
